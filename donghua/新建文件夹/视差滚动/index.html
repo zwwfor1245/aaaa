@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视差滚动</title>
+	<style>
+		body,ul,li{margin: 0; padding: 0;}
+		body{background: #8df1f1;}
+		li{ list-style: none; }
+		.clearfix{zoom:1;}
+		.clearfix:after{ content: "."; display:block; visibility: hidden; height: 0; clear: both; font-size: 0;}
+		/*地面*/
+		.footer{ position: fixed; left: 0; bottom: 0; height:132px; }
+		.footer li{ float: left; width: 90px; height: 132px; background: #8dc63f;}
+		.footer-arrow{ height: 5px; width: 100%; padding-top: 45px; overflow: hidden;}
+		.footer-arrow i{float: left; width:0; height:0; border-width: 5px; margin-top: -5px; border-color: transparent transparent #a67c53; border-style: solid;}
+		.footer-skew{ width: 100%; height: 82px; background:#a67c52;}
+		.footer-skew:after,.footer-skew:before{ content: ""; float: left; width: 50%; height: 50%; background: #8b6239;}
+		.footer-skew:before{ transform-origin: 100% 0; transform: skew(0,-30deg);}
+		.footer-skew:after{ transform-origin: 0 0; transform: skew(0,30deg);}
+		/*云*/
+		.cloud{ position: fixed; left: 0; top: 0; }
+		.theCloud{ position: absolute; width: 180px; height: 60px; background: #fff; border-radius:30px; }
+		.theCloud i{ position: absolute; background: #fff; border-radius: 50%; }
+		.theCloud i:nth-child(1){ left: 30px; top: -30px; width: 60px; height: 60px; }
+		.theCloud i:nth-child(2){ left: 60px; top: -50px; width: 90px; height: 90px; }
+		/*滚动条*/
+		.scroll{width: 100%;}
+		/*人*/
+		.person{ position: fixed; left: 50%; bottom:132px;  width: 3px; height: 167px;}
+		.head{ position: absolute; left: -20px; top: 8px; width: 30px; height: 30px; border: #fff 5px solid; border-radius:50%; animation:headAni 1.5s linear infinite alternate;}
+		.head:after{ content: "";  position: absolute; left: 50%; margin-left: -25px; top: 0px; width: 50px; height: 10px; background: #fff; border-radius: 20% 20% 0 0;}
+		.head:before{ content: "";  position: absolute; left: 50%; margin-left: -12px; top: -14px; width: 24px; height: 14px; background: #fff; border-radius: 30% 30% 0 0;}
+		.body{ position: absolute; left: 0; top: 47px; width: 100%; height: 64px; background: #fff; }
+		.foot-left,.foot-right{ position: absolute; left: 1px; bottom: 13px; width: 3px; height: 45px; background: #fff; transform-origin: 50% 0; }
+		.foot-left:after,.foot-right:after{ content: ""; position: absolute; left: 0; bottom: 1.5px; width: 3px; height: 52px; background: #fff; transform-origin: 50% 100%; transform: rotate(-90deg);}
+		.foot-left{transform: rotate(45deg); animation:footAnLeft 1.5s linear infinite alternate;}
+		.foot-right{transform: rotate(-90deg);animation:footAnRight 1.5s linear infinite alternate;}
+		.hand-left,.hand-right{ position: absolute; left: 0; top: 47px; width: 3px; height: 48px; background: #fff; transform-origin: 50% 0;}
+		.hand-left:after,.hand-right:after{ content: ""; position: absolute; left: 0; bottom: 0; width: 44px; height: 3px; background: #fff;}
+		.hand-left{ transform: rotate(75deg); animation:handAnLeft 1.5s linear infinite alternate;}
+		.hand-right{ transform: rotate(-45deg); animation:handAnRight 1.5s linear infinite alternate;}
+
+		@keyframes  headAni{
+			0%{transform: rotate(0deg);}
+			50%{transform: rotate(15deg);}
+			100%{transform: rotate(0deg);}
+		}
+
+		@keyframes  footAnLeft{
+			0%{transform: rotate(45deg);}
+			50%{transform: rotate(-90deg);}
+			100%{transform: rotate(45deg);}
+		}
+
+		@keyframes  footAnRight{
+			0%{transform: rotate(-90deg);}
+			50%{transform: rotate(45deg);}
+			100%{transform: rotate(-90deg);}
+		}
+
+		@keyframes  handAnLeft{
+			0%{transform: rotate(75deg);}
+			50%{transform: rotate(-45deg);}
+			100%{transform: rotate(75deg);}
+		}
+
+		@keyframes  handAnRight{
+			0%{transform: rotate(-45deg)}
+			50%{transform: rotate(75deg);}
+			100%{transform: rotate(-45deg);}
+		}
+		/*山层*/
+		.hill{ position: fixed; left: 0; bottom:132px;}
+		.theHill{ position: absolute; bottom: 0; width: 760px; height: 380px; overflow: hidden;}
+		.theHill:after{ content: ""; position: absolute; left:0; bottom: 0px; width: 0; height: 0; border-width: 380px; border-color: transparent transparent #c69c6c; border-style: solid;}
+		.theHill:before{ content: ""; position: absolute; left: 380px; bottom: -380px; z-index: 1; width: 0; height: 0; border-width: 380px; border-color: transparent transparent transparent #8c6238; border-style: solid;}
+		/*人*/
+		.person-R{transform: rotateY(180deg);}
+		.person-R .handA{transform: rotateY(180deg);}
+		.personA{ position: fixed; width: 40px; height: 175px;  bottom: 132px; left: 30%;}
+		.headA{ position: absolute; z-index: 88; left: 50%; margin-left:-40px; top:0; width: 80px; height: 80px;border-radius: 50%; background: #000;}
+		.headA-face{ position:absolute; left: -1px; bottom:-1px; width: 100%; height: 100%;  border-radius: 50%; overflow: hidden;}
+		.headA-face:after{ content: ""; position: absolute; left: 0; top: 40px; width: 65px; height: 60px; background: #fdc689; }
+		.headA-mouse{ position: absolute; left: 18px; bottom: 6px; width: 20px; height: 2px; background: #ed1c24; border:#f26c4f 4px solid; border-radius: 4px;}
+		.headA-eye-l,.headA-eye-r{ position: absolute; z-index: 8; top: 33px; width: 20px; height: 20px; background: #fff; border: #5e6e7e 4px solid; border-radius: 50%; overflow: hidden;}
+		.headA-eye-l:before,.headA-eye-r:before{ content: ""; position: absolute; left: 50%; top: 50%; margin: -2.5px 0 0 -2.5px; width:5px; height: 5px; background: #000;  border-radius: 50%;}
+		.headA-eye-l:after,.headA-eye-r:after{ visibility: hidden;/*清浮动*/ content: ""; position: absolute; left: 50%; top: 50%;  margin:-20.5px 0 0 -30px; width: 100%; height: 1px; background: #f26c4f;  border: #fdc689 20px solid; animation:eyeAni 2s cubic-bezier(0.66, -0.88, 1, 0.32) infinite; }
+		.headA-eye-l{ left: -6px; }
+		.headA-eye-r{ left: 26px; }
+		.headA-ear{ position: absolute; z-index: 5;  top: 42px; right: -1px; width: 16px; height: 16px; }
+		.headA-ear:before{ content: ""; position: absolute; left: -47px; top: 2px; width: 58px; height: 4px; background: #5e6e7e; }
+		.headA-ear:after{content: ""; display: block; position: relative; z-index: 88; width: 100%; height: 100%; background: #fdc689; border-radius: 50%;}
+		@keyframes eyeAni{
+			0%{visibility: hidden;}
+			100%{visibility: visible;}
+		}
+		.bodyA{ position: absolute; left: 50%; top: 75px; z-index: 8; margin-left:-20px; width: 40px; height: 58px; background: #499adc; border-bottom: #f21664 15px solid; }
+		.bodyA-p{ position: absolute; position: absolute; right: -45px; top: 0; width: 45px; height: 60px;  overflow: hidden;}
+		.bodyA-p:before{ content: ""; position: absolute; right: 0; top: 0; width: 100px; height: 60px;  background: #f21664; border-radius: 0 100px 0 0;}
+		.footA{ position: absolute; left: 0; bottom: 0; width: 40px; height: 30px;}
+		.footA-l,.footA-r{ position: relative; width: 15px; height: 30px; background: #499adc;}
+		.footA-l{ float: left; }
+		.footA-r{ float: right; }
+		.footA-l:before,.footA-r:before{ content: ""; position: absolute; bottom: 0; width: 30px; height: 15px; background: #f21664; }
+		.footA-l:before{ left: -15px;}
+		.footA-r:before{ right: -15px; }
+		.handA{ position: absolute; z-index: 77; left:50%; top: 72px; margin-left:-60px;  width: 120px; padding-top: 10px; height: 50px; text-align: center; line-height: 16px; color: #f21664;}
+		.handA:after,.handA:before{ content: ""; position: absolute; z-index: 8; bottom: -6px; width: 20px; height: 20px; background: #fdc689;  border-radius:50%;}
+		.handA:after{ left: -2px; }
+		.handA:before{ right: -2px; }
+		.handA-main{  position: absolute; left: 0; top: 0; z-index: -1; width: 100%; height: 100%; overflow: hidden;}
+		.handA-main:before{ content: ""; position: absolute; left: 0; top: 0; width: 90px; height: 90px; border: 15px #499adc solid; border-radius:50%;}
+	</style>
+</head>
+<body>
+	<section class="cloud">	
+	</section>
+
+	<section class="hill">
+	</section>
+
+	<section class="footer">
+		<ul class="clearfix">
+		</ul>
+	</section>
+
+	<section class="person">
+		<div class="head"></div>
+		<div class="hand-left"></div>
+		<div class="hand-right"></div>
+		<div class="body"></div>
+		<div class="foot-left"></div>
+		<div class="foot-right"></div>
+	</section>
+
+	<section class="personA person-R">
+		<div class="headA">
+			<div class="headA-eye-l"></div>
+			<div class="headA-eye-r"></div>
+			<div class="headA-ear"></div>
+			<div class="headA-face"></div>
+			<div class="headA-mouse"></div>
+		</div>
+		<div class="bodyA"><i class="bodyA-p"></i></div>
+		<div class="handA">
+			<span class="handA-main"></span>
+			Z<br />D<br />D
+		</div>
+		<div class="footA">
+			<div class="footA-l"></div>
+			<div class="footA-r"></div>
+		</div>
+	</section>
+	
+	<section class="scroll"></section>
+
+	<script src="js/jquery.3.2.0.min.js"></script>
+	<script>
+		//地面平铺的效果
+		function footerFun(){//定义一个footerFun的函数
+			var liWidth=90;//定义一个变量，表示li的宽度是90
+			//定义一个li模板
+			var footerHTMLA='<li><div class="footer-arrow"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="footer-skew"></div></li>';
+			var footerHTMLB='<li style="margin-right:500px;"><div class="footer-arrow"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="footer-skew"></div></li>';
+
+			var footerAllHTML='';//定义一个空字符串
+			var liHtml='';//定义一个空字符串
+			var iNum=400;//表示有多少个li
+			var marginNum=0;//表示空隙的个数
+			for(var i=0;i<iNum;i++)//循环iNum次;让footerAllHTML有iNum个li
+			{
+				if(i==250){
+					liHtml=footerHTMLB;
+					marginNum=marginNum+1;//等价marginNum++
+				}
+				else{
+					liHtml=footerHTMLA;
+				}
+				footerAllHTML=footerAllHTML+liHtml;//等价footerAllHTML+=liHtml;
+			}
+			var winWidth=$(document).width();//可视区域的宽度
+			var winHeight=$(document).height();//可视区域的宽度
+			
+			$(".footer").css({width:(liWidth*iNum+marginNum*500)+"px"});//将地面设置一个宽度
+			$('.scroll').css({height:(liWidth*iNum+marginNum*500-winWidth+winHeight)+"px"});//将scroll设置一个高度
+			$(".footer ul").append(footerAllHTML);//找到ul将1000个li添加到ul中
+		}
+		footerFun();//调用函数
+
+		//云的
+		function cloudFun(){
+			var cloudHTML='<div class="theCloud"><i></i><i></i></div>';
+			$('.cloud').append($(cloudHTML).css({left:"100px",top:"150px"}));
+			$('.cloud').append($(cloudHTML).css({left:"700px",top:"50px"}));
+			$('.cloud').append($(cloudHTML).css({left:"1200px",top:"80px"}));
+			$('.cloud').append($(cloudHTML).css({left:"1800px",top:"130px"}));
+			$('.cloud').append($(cloudHTML).css({left:"2200px",top:"80px"}));
+			$('.cloud').append($(cloudHTML).css({left:"2800px",top:"120px"}));
+			$('.cloud').append($(cloudHTML).css({left:"3600px",top:"160px"}));
+			$('.cloud').append($(cloudHTML).css({left:"4200px",top:"80px"}));
+			$('.cloud').append($(cloudHTML).css({left:"4800px",top:"140px"}));
+			$('.cloud').append($(cloudHTML).css({left:"5600px",top:"10px"}));
+			$('.cloud').append($(cloudHTML).css({left:"6100px",top:"160px"}));
+			$('.cloud').append($(cloudHTML).css({left:"7000px",top:"50px"}));
+			$('.cloud').append($(cloudHTML).css({left:"7600px",top:"180px"}));
+			$('.cloud').append($(cloudHTML).css({left:"8200px",top:"20px"}));
+			$('.cloud').append($(cloudHTML).css({left:"9000px",top:"100px"}));
+		}
+		cloudFun();//调用函数
+
+		//山的
+		function hillFun(){
+			var hillHTML='<div class="theHill"></div>';
+			$('.hill').append($(hillHTML).css({left:"500px"}));
+			$('.hill').append($(hillHTML).css({left:"2000px"}));
+		}
+		hillFun();//调用函数
+
+		$(window).scroll(function(){//监听浏览器滚动，当浏览器滚动了即可触发函数
+			var scrollLong=$('html').scrollTop()+$('body').scrollTop();//得到滚去的距离
+			$(".footer").css({left:-scrollLong+"px"});//让地面向左移动
+			$(".cloud").css({left:-scrollLong/5+"px"});//让地面向左移动
+			$(".hill").css({left:-scrollLong/8+"px"});//让地面向左移动
+		});
+	</script>
+</body>
+</html>

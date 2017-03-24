@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* CSS 初始化 */
+body,div,ul,ol,li,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,span,a,i,strong,img,dorm,label,input,textarea{ margin:0; padding:0;}
+area{ outline:none;}
+li{ list-style:none;}
+a{ text-decoration:none; color:#404040;}
+a:hover{ color:#3a1515;}
+img{ border:0 none; vertical-align:top;}
+body{ font-size:14px; font-family:"微软雅黑"; color:#404040; min-width:1260px;/*最小宽度*/}
+.clearfix{ *zoom:1;}
+.clearfix:after{ content:'.'; height:0; display:block; visibility:hidden; clear:both; font-size:0;}
+/*公共*/
+.layer{ width:990px; margin:0 auto;}
+.textIndent{overflow:hidden; text-indent:-99em;}
+/*导航*/
+#nav{ width:1260px; margin:0 auto;}
+.nav-left{ float:left; margin:8px 0 0 100px; width:auto; height:25px;}
+.nav-left li{ float:left; line-height:14px; width:auto; height:auto; margin-right:30px; font-weight:bold;}
+.nav-first{ padding-right:22px; background:url(../images/nav-first-bg.png) no-repeat right 2px;}
+.nav-right{ float:right;}
+.nav-right li{ margin:0 0 0 30px;}
+/*广告顶*/
+#banner-top{ width:100%; height:70px; padding-top:426px; background:url(../images/top-banner.jpg) no-repeat center top #f4e033; border-top:#f56293 1px solid;}
+.banner-top-link{ height:70px; background:url(../images/top-banner-link.jpg) no-repeat;}
+.banner-top-link a{ float:left; width:50%; height:100%; overflow:hidden; text-indent:-99em;}
+/*切换*/
+#slider{ width:100%; height:657px; padding-top:20px; background:url(../images/slider-bg.jpg) no-repeat center top #f4e033;}
+.slider-content{height:428px; background:#fff;}
+.slider-content li{ float:left; width:47px; overflow:hidden;/*溢出隐藏*/ margin-left:1px; margin-top:-1px;transition:all 0.5s;}
+.slider-content .current{width:798px; margin:0 -1px 0 1px;}
+/*女装*/
+#girl{ position:relative; width:100%; background:#e04ede;}
+.girl-tit{ position:absolute; top:-221px; left:50%; margin-left:-183px; width:366px; height:154px; background:url(../images/girl-tit.png) no-repeat; overflow:hidden; text-indent:-99em;}
+.girl-ad-01{ position:absolute; top:-119px; left:50%; margin-left:-495px; width:990px; height:166px;}
+.girl-new-list{ overflow:hidden; padding-top:60px;}
+.girl-new-list ul{ width:110%; height:auto;}
+.girl-new-list li{ float:left; position:relative; width:190px; height:330px; margin:10px 10px 0 0; background:#fff;}
+.girl-new-list li img{ display:block;}
+.girl-new-brandLogo{ margin:8px auto 0;}
+.girl-new-tit{ display:block; line-height:30px; text-align:center; color:#2d0505;}
+.girl-new-coupon{ width:137px; height:26px; margin:3px 0 0 27px; background:#f0196a; color:#fff;}
+.girl-new-coupon dt{ float:left; width:68px; height:25px; margin-top:1px; line-height:24px; text-align:center; border-right:#f34788 1px solid;}
+.girl-new-coupon dd{ float:left; padding-left:10px; line-height:26px; }
+.girl-new-coupon dd i{ display:inline-block; height:26px; width:6px; background:url(../images/girl-arrow-icon.png); vertical-align:top; margin-left:1px;}
+
+.girl-new-hover{ display:none; position:absolute; left:0; top:0; width:100%; height:100%;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#66000000', endColorstr='#66000000');background:rgba(0,0,0,0.4);}
+.girl-new-link{ display:block; width:100%; height:100%;}
+.girl-new-couponLink{ position:absolute; bottom:13px; left:50%; margin-left:-86px; width:172px; height:33px;}
+.girl-new-couponLink .girl-new-coupon{ width:100%; height:100%; margin:0;}
+.girl-new-couponLink .girl-new-coupon dt{ width:85px; line-height:33px; height:33px; margin:0; font-size:18px; border-width:2px;}
+.girl-new-couponLink .girl-new-coupon dd{ padding-top:4px;}
+.girl-new-list li:hover .girl-new-hover{ display:block;}
+/*聚划算*/
+.girl-juhusuan{ width:277px; height:114px; background:url(../images/icon.png) no-repeat -6px -177px; margin:18px auto 0; overflow:hidden; text-indent:-99em;}
+.girl-juhusuan-content{ overflow:hidden; margin-top:11px;}
+.girl-juhusuan-content ul{ width:110%; height:auto;}
+.girl-juhusuan-content li{ float:left; width:325px; height:242px; margin-right:9px; background:#fff;}
+/*女装主要*/
+.girl-beautiful-tit{ width:350px; height:151px;background:url(../images/icon.png) no-repeat -641px -154px; margin:5px auto 0;overflow:hidden; text-indent:-99em;}
+.girl-arder-list{ margin-top:17px; padding:2px; overflow:hidden;}
+.girl-arder-list dl{ width:110%;}
+.girl-arder-listTit{ float:left; width:990px; height:39px;background:url(../images/icon.png) no-repeat 0px -8px; text-align:center; margin-bottom:10px;}
+.girl-arder-listTit span{ display:inline-block; width:114px; height:39px; background:url(../images/icon.png) no-repeat -1px -85px;}
+.girl-arder-list dd{ float:left; position:relative; width:190px; height:348px; padding-top:7px; margin:10px 10px 0 0; background:#fff;}
+.girl-arder-shopName,.girl-arder-shopNameB{ display:block; padding-left:10px; }
+.girl-arder-shopName{line-height:20px; font-size:16px; color:#f12773;}
+.girl-arder-shopNameB{line-height:16px; font-size:12px; color:#999;}
+.girl-arder-img{ display:block; margin-top:2px;}
+.girl-arder-tit{ display:block; width:160px; padding-left:10px; color:#585858; height:40px; line-height:20px; overflow:hidden;}
+.girl-arder-price{ display:block; width:170px; height:36px; padding-left:10px;}
+.girl-arder-price em{ font-style:normal; float:left; line-height:36px; height:36px; color:#f0196a; font-size:22px;}
+.girl-arder-price b{ font-weight:400; font-size:14px;}
+.girl-arder-price i{ text-decoration:line-through; font-style:normal; float:right; line-height:30px; padding-top:6px; color:#9b9b9b;}
+.girl-arder-coupon{ display:block; position:relative; z-index:99; width:169px; height:36px; margin-left:9px; background:url(../images/icon.png) no-repeat -363px -190px; }
+.girl-arder-hover{ display:none; position:absolute; z-index:77; left:-2px; top:-2px; width:100%; height:100%; border:#e9d83f 2px solid;}
+.girl-arder-list dd:hover .girl-arder-hover{ display:block;}
+.girl-lady-list .girl-arder-listTit{ margin-top:35px;}
+.girl-lady-list .girl-arder-listTit span{ background-position:-149px -85px;}
+.girl-job-list .girl-arder-listTit,.girl-sports-list .girl-arder-listTit,.girl-english-list .girl-arder-listTit{ margin-top:41px;}
+.girl-job-list .girl-arder-listTit span{ background-position:-312px -85px;}
+.girl-sports-list .girl-arder-listTit span{ background-position:-470px -89px;}
+.girl-english-list .girl-arder-listTit span{ background-position:-637px -89px;}
+.girl-ladyQuality-tit{ float:left; width:990px; height:112px; padding-top:49px; text-align:center;}
+.girl-ladyQuality-tit span{ display:inline-block; width:370px; height:90px;background:url(../images/icon.png) no-repeat -2px -392px;}
+.girl-ladyQuality-list{ padding-bottom:33px;}
+.girl-ladyQuality-list dd{ height:310px; padding:0;}
+.girl-ladyQuality-list .girl-arder-img{ margin:0;}
+.girl-arder-buy{ display:block; position:relative; z-index:999; margin-left:10px; width:170px; height:35px; line-height:35px; text-align:center; background:#f0196a; color:#fff; font-size:20px;}
+.girl-arder-buy:hover{ color:#CCC;}
+.girl-ladyQuality-list .girl-arder-hover{ border-color:#5c29c4;}
+/*男装*/
+#boy{ width:100%; background:#753ac8;}
+.boy-tit{ height:168px; background:url(../images/boy-tit.jpg) no-repeat;}
+.boy-ad-01{ height:140px; margin-top:-23px;}
+.boy-new-list .girl-new-coupon{ background:#1e5fc3;}
+.boy-new-list .girl-new-coupon dt{ border-color:#4b7fcf;}
+.boy-new-list .girl-new-coupon dd i{ background:url(../images/boy-arrow-icon.jpg) no-repeat;}
+.boy-beautiful-tit{ background-position:-641px -351px;}
+.boy-list .girl-arder-listTit{ background-position:-6px -534px;}
+.boy-list .girl-arder-shopName,.boy-list .girl-arder-price em{ color:#1e5fc3;}
+.boy-list .girl-arder-coupon{ background-position:-364px -232px;}
+.boy-list .girl-arder-hover{ border-color:#1e5fc3;}
+.boy-list .girl-arder-buy{ background:#1e5fc3;}
+.boy-easy-list .girl-arder-listTit span{ background-position:-13px -620px;}
+.boy-trend-list .girl-arder-listTit span{ background-position:-181px -619px;}
+.boy-job-list .girl-arder-listTit span{ background-position:-361px -622px;}
+.boy-arder-list .girl-arder-listTit span{ background-position:-549px -622px;}
+/*固定*/
+#fixed{ position:fixed; left:50%; top:50%; margin:-222px 0 0 518px; width:120px; }
+#fixed a{ color:#fff;}
+.girl-fixed dt{ height:36px; line-height:36px; padding-left:32px; background:url(../images/fixed-icon.png) no-repeat -3px -22px #ff2266; margin-bottom:-2px; position:relative; z-index:5;}
+.girl-fixed dd{ margin-left:2px; width:115px; background:url(../images/fixed-icon.png) no-repeat center 16px #e23bdf; text-align:center; height:26px; line-height:26px; letter-spacing:10px;}
+.girl-fixed .girl-fixed-bottom{ letter-spacing:normal; background-image:none; padding-bottom:6px;}
+.boy-fixed dt{ background-position:0px -70px; padding-left:34px;}
+.boy-fixed dd{ background-color:#6e2ccb;}
+.fixed-juhuasuan{ display:block; width:115px; height:28px; text-align:center; line-height:28px; margin-left:2px; background:#ff2266;}
+.fixed-toTop{display:block; width:115px; height:41px;  margin-left:2px; background:url(../images/fixed-icon.png) no-repeat 32px  -115px #333333;}
+

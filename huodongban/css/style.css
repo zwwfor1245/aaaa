@@ -1,0 +1,25 @@
+/*初始化*/
+body,div,ul,li,a,img,i,span,dl,dt,dd{ margin:0; padding:0;}
+a{ color: #fff; text-decoration: none;}
+img{ border:none 0; vertical-align: top;}
+li{list-style: none;}
+body{ font-family: "微软雅黑"; font-size: 14px; background:#e7e7e7; padding-top: 6px;}
+.clearfix{*zoom:1;}
+.clearfix:after{ content: "."; display: block; visibility: hidden; clear: both; height:0; font-size:0;}
+
+body{background:#f2f2f2;}
+.bg{width:997px; height:696px; background:url(../img/bg.png); margin:0 auto;}
+h1{font-size:14px;color:#878787;font-family:"黑体";line-height:18px;}
+.wen{width:500px;height:18px;margin-left:17px; padding-top:17px;}
+.size{font-family:"Mongolian Baiti";font-size:18px;}
+.border-bug{width:997px;height:300px;margin-top:22px;}
+.border-bug li{position:relative;float:left;width:303px;height:300px;border:0px #d4d4d4 solid;background:url(../img/border-bg.png);margin:0 16px 0 13px;}
+.vip{position:absolute;left:0; top:0;}
+.v-bg{float:left;margin-left:5px;margin-top:5px; z-index:8;}
+.tz{float:left;width:195px; height:80px; margin-top:8px; margin-left:5px;}
+.tz dt{font-size:13px; line-height:22px; color:#009bda;padding-left:11px;}
+.tz dd{font-size:11px; line-height:17px; color:#525050; padding-left:4px;}
+.bm{float:left; width:116px; height:30px; background:url(../img/bbb.png) center top;margin-top:23px; margin-left:66px;text-indent: -99em; overflow: hidden;}
+
+.border-bug1{width:997px;height:300px;margin-top:24px;}
+.border-bug1 li{position:relative;float:left;width:303px;height:300px;background:url(../img/border-bg.png);margin:0 16px 0 13px;}

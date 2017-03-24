@@ -1,0 +1,59 @@
+/*初始化*/
+body,p,div,h1,h2,h3,h4,ul,li,table,tr,td,dl,dt,dd,form,a,img,em,i,strong,b,label,input,select,option,textarea{ margin: 0; padding: 0;}
+a{ color: #000000; text-decoration: none;}
+a:hover{ color:#fb193f;}
+em,i{ font-style: normal;}
+img{ border: 0 none; vertical-align: top;}
+li{ list-style: none;}
+.clearfix{*zoom:1;}
+.clearfix:after{ content: "."; display: block; clear: both; visibility: hidden; height: 0; font-size: 0;}
+body{ font-family: "微软雅黑"; font-size:14px; background:#fff; height:auto; width:100%;}
+
+/*公用部分*/
+.layer{width:1003px; height:auto; margin:0 auto;}
+
+/*头部*/
+.top{width:1003px; height:80px; border-top:3px #7f7f7f solid;}
+.topic{float:left;width:230px; height:80px; background:url(../img/top-1.png) no-repeat; border-right:1px #7f7f7f solid;}
+.topic-w{font-size:24px; line-height: 24px; color:#3f3f3f; padding-left:23px; padding-top:15px;}
+/*头部导航*/
+.top-nav{float:left; width:772px; height:80px; background:url(../img/top-2.png) no-repeat;}
+.top-nav1{width:772px; height:40px; position: relative;}
+.top-nav1 li{float:right; width:53px; height:13px; margin-right:19px;  margin-top:15px;}
+.top-nav1 li a{font-size:13px; color:#a3a2a2; line-height:13px;}
+.top-right-1{position: absolute;width:9px; height:13px; border-right:1px #7f7f7f solid; right:82px;top:19px;}
+.top-nav2{width:772px; height:40px;}
+.top-nav2 li{float:left; width:auto; height:auto; margin:10px 19px 0 23px;}
+.top-nav2 li a{font-size:13px; color:#a3a2a2; line-height:13px;}
+/*头部背景*/
+#top-bg{width:1003px; height:317px; margin-top:4px; background:url(../img/top-bg.jpg) no-repeat; }
+/*中间左部分*/
+.body-bg{width:1003px; height:auto;background:url(../img/body-bg.jpg) no-repeat;border-bottom:7px #e2e1e1 solid; }
+.body-left{float:left; width:188px; height:443px;}
+.body-1{width:188px; height:34px; background:url(../img/body-1.png) no-repeat; margin-top:23px; font-size:13px; color:#1952c6; line-height:34px;}
+.body-left-1{margin-left:27px;}
+.body-left-2{width:100%;height:116px; margin-top:16px;}
+.body-left-2 li{width:186px; height:24px; border:1px #ccc9c9 solid; margin-bottom:3px;background:url(../img/body-2.png) no-repeat; }
+.body-left-2 li a{display:block;width:111px;height:24px;background:url(../img/body-3.png) no-repeat;text-align: right; line-height:24px; font-size:12px; color:#000; font-family:"宋体";}
+.body-left-3{display:block; width:186px; height:72px; border:1px #ccc9c9 solid; background:url(../img/body-4.png) no-repeat center center;}
+.body-left-4{width:100%; height:173px;}
+.body-left-4 li{width:auto; height:14px; margin-top:15px; font-size:12px; color:#000; font-family:"宋体"; line-height:14px;}
+/*中间部分*/
+.a{float:left; width:815px; height:auto;}
+.b{float:left; width:777px;height:56px; margin:1px 0 0 37px; background:url(../img/1.png) no-repeat;}
+.c{float:left; width:201px; height:16px; background:url(../img/2.png) no-repeat; margin:26px 0 0 18px; text-indent:1em; font-size:12px; font-family:"宋体"; color:#000;line-height:16px;}
+.cpl{float:left; width:778px; height:644px; margin-left:37px;}
+.cpl li{float:left; width:346px; height:143px; margin:14px 17px 0 22px; border-bottom:1px #d3d3d3 dashed;}
+.cpl li a{display:block; float:left; width:125px; height:125px; background:url(../img/body-8.png) no-repeat; border:1px #d3d3d3 solid; border-radius:2px; }
+.bt{float:left; width:190px; height:26px;margin:0 0 0 18px; line-height:26px; font-size:18px; color:#323232;}
+.bt1{float:left; width:190px; height:91px; margin:8px 0 0 18px;line-height:22px; font-size:13px; color:#323232;}
+
+.fenye{ float:left; width:725px; height:auto; margin:17px 0 44px 55px;text-align: center;  }
+		.fenye a{ 
+			display: inline-block;width:31px;height: 20px;line-height: 20px;padding: 0 4px;background: #fff;color: #000; border:1px #b6b5b5 solid; border-radius:2px;
+		}
+		.fenye a:hover{background:#ea3724;color:#fff;}
+
+/*底部分*/
+.under-1{width:100%; height:auto; margin-top:18px; font-size:12px; color:#a4a2a2; font-family:"宋体"; text-align:center;}
+.under-2{width:100%; height:auto; margin-top:12px;margin-bottom:22px; font-size:12px; color:#a4a2a2; font-family:"宋体"; text-align:center;}
