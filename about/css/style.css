@@ -1,0 +1,48 @@
+/*css初始化*/
+body,div,ul,li,h1,h2,h3,p,img,a,span{ margin: 0; padding: 0;}
+li{list-style: none;}
+a{ color: #484848; text-decoration: none;}
+a:hover{ text-decoration: underline;}
+img{ border: 0 none; vertical-align: top;}
+body{ font-family:"宋体"; font-size:12px; background:#fff ; color: #858585;}
+.clearfix{*zoom:1;}
+.clearfix:after{ height:0; font-size:0; clear: both; visibility: hidden; content: "."; display:block;}
+/*主要*/
+#header{ width: 100%; height: 104px; background: #f6f6f6;}
+#about-bg{width: 100%; height: 386px; background: url(../img/about-bg.jpg) no-repeat center top;}
+.title{ width: 100%; height: 30px; margin-top: 50px; background: url(../img/about-line.png) repeat-x;}
+.title h3{ width: 192px; height: 100%; margin: 0 auto; background: url(../img/about-title1.png) no-repeat; text-indent: -99em; overflow: hidden;}
+.title1{ margin-top: 40px;}
+.title1 h3{ background-image: url(../img/about-title2.png);}
+.about p{ line-height: 22px; width: 896px; margin-left: 43px; letter-spacing: 1px; text-indent: 2em;/*文本缩进2个字符*/}
+.about strong{ font-size: 13px; color: #484848;}
+.abput-tit{ padding-top: 48px;}
+.about-img{ margin-top: 60px;}
+.about-img-img{text-align: center;}
+.about-img-btn{ display: block; width: 70px; height: 22px; background: url(../img/about-btn.jpg) no-repeat; margin: 2px auto 0; text-indent: -99em; overflow: hidden;}
+/*头部*/
+.logo{ float: left; width:165px; height:75px; margin:21px 0 0 11px;}
+.header-right{ float:right; width:538px; }
+.nav{ float:left; width:504px; margin-top: 65px;}
+.nav li{ float:left; width:auto; padding:0 11px;}
+.nav li a{ display:block; width:auto; height:34px; padding:0 13px; color:#6d6d6d; font-weight: bold;}
+.nav .current a,.nav li a:hover{ text-decoration:none; border-bottom: 4px #f57406 solid;}
+.header-login{ float:left; width:28px; height:32px; background:url(../img/header-login.png) no-repeat; margin-top: 51px; text-indent: -99em; overflow: hidden;}
+/*底部*/
+#footer{ height:523px; background:url(../img/footer-bg.png) repeat-x;}
+.footer-info{ float:left; width:250px; margin:84px 0 0 43px; font-family:"微软雅黑";}
+.footer-info li{ padding-left: 41px;  line-height:32px; font-size:13px; margin-top:30px;}
+.footer-info-tel{ background:url(../img/footer-tel.png) no-repeat;}
+.footer-info-email{ background:url(../img/footer-email.png) no-repeat;}
+.footer-info-about{ background:url(../img/footer-about.png) no-repeat;}
+.footer-info a{ color:#fff;}
+.footer-erweima{ float:left; width:164px;  margin:114px 0 0 124px; }
+.footer-erweima-img{width:151px; height:151px; border:1px #2e2e2e solid; padding:11px 0 0 11px;  background:#2e2e2e;}
+.footer-erweima-text{ margin-top:8px; line-height:20px; text-align: center; color:#6e6e6e;}
+.footer-apply{ float:left; width:144px; height:62px; line-height:62px; text-align:center; background:url(../img/footer-apply.png) no-repeat; margin:162px 0 0 197px; font-size:16px;}
+.footer-apply a{ color:#ff0060; font-weight:bold;}
+.footer-copy{ color:#616161; font-size:14px; text-align:center; line-height:22px; margin-top:109px;}
+
+.abc{wdith:800px;height:50px;background:#000;}
+/*公用*/
+.layer{ width: 1000px; height: auto; margin: 0 auto;}
